@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: books-api
+  annotations:
+    description: "API encargada de interacturar con los libros."
+  labels:
+    app: books-example
+    service: books-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: books-example
+      service: books-api
+  template:
+    metadata:
+      labels:
+        app: books-example
+        service: books-api
+    spec:
+      containers:
+        - name: api
+          image: manuelgm/books-example-books-api:1.0.0
+          ports:
+            - containerPort: 8000

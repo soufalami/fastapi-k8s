@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clients-api
+  annotations:
+    description: "API encargada de interacturar con los clientes."
+  labels:
+    app: books-example
+    service: clients-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: books-example
+      service: clients-api
+  template:
+    metadata:
+      labels:
+        app: books-example
+        service: clients-api
+    spec:
+      containers:
+        - name: api
+          env:
+          - name: DATA_FILE
+            value: /data/clients.csv
+          image: manuelgm/books-example-clients-api:1.0.0
+          ports:
+            - containerPort: 8000
+          volumeMounts:
+          - mountPath: /data
+            name: data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: clients-data
+
