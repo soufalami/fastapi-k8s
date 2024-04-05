@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
         - name: api
-          image: manuelgm/books-example-books-api:1.0.0
+          image: souf12/books-example-books-api:1.0.0
           ports:
             - containerPort: 8000

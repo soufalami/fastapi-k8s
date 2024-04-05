@@ -24,7 +24,7 @@ spec:
           env:
           - name: DATA_FILE
             value: /data/clients.csv
-          image: manuelgm/books-example-clients-api:1.0.0
+          image: souf12/books-example-clients-api:1.0.0
           ports:
             - containerPort: 8000
           volumeMounts:
