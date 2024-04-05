@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dice-app
+  namespace: virtualización
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dice-app
+  template:
+    metadata:
+      labels:
+        app: dice-app
+    spec:
+      containers:
+      - name: dice-app
+        image: souf12/dice-app:latest
+        ports:
+        - containerPort: 80
