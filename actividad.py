@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession
 
 spark = SparkSession.builder \
-    .appName("Spark Connect Example") \
+    .appName("Ejemplo dedice app actividad 3") \
     .master("k8s://https://kubernetes.default.svc.cluster.local") \
     .config("spark.kubernetes.namespace", "virtualizacion") \
     .config("spark.kubernetes.authenticate.driver.serviceAccountName", "spark") \
